@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		36902330260292EF00066F47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690232F260292EF00066F47 /* AppDelegate.swift */; };
 		36902332260292F000066F47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36902331260292F000066F47 /* SceneDelegate.swift */; };
-		36902334260292F000066F47 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36902333260292F000066F47 /* ViewController.swift */; };
 		36902337260292F000066F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36902335260292F000066F47 /* Main.storyboard */; };
 		3690233A260292F000066F47 /* My_Personal_Manager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36902338260292F000066F47 /* My_Personal_Manager.xcdatamodeld */; };
 		3690233C260292F400066F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690233B260292F400066F47 /* Assets.xcassets */; };
@@ -39,7 +38,6 @@
 		3690232C260292EF00066F47 /* My Personal Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Personal Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3690232F260292EF00066F47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36902331260292F000066F47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		36902333260292F000066F47 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		36902336260292F000066F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		36902339260292F000066F47 /* My_Personal_Manager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = My_Personal_Manager.xcdatamodel; sourceTree = "<group>"; };
 		3690233B260292F400066F47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -101,12 +99,12 @@
 		3690232E260292EF00066F47 /* My Personal Manager */ = {
 			isa = PBXGroup;
 			children = (
-				3690232F260292EF00066F47 /* AppDelegate.swift */,
-				36902331260292F000066F47 /* SceneDelegate.swift */,
-				36902333260292F000066F47 /* ViewController.swift */,
-				36902335260292F000066F47 /* Main.storyboard */,
+				3690236C2602934F00066F47 /* Helper */,
+				3690236B2602934400066F47 /* Controller */,
+				3690236A2602933D00066F47 /* Model */,
+				369023692602933000066F47 /* View */,
+				369023652602931200066F47 /* Common */,
 				3690233B260292F400066F47 /* Assets.xcassets */,
-				3690233D260292F400066F47 /* LaunchScreen.storyboard */,
 				36902340260292F400066F47 /* Info.plist */,
 				36902338260292F000066F47 /* My_Personal_Manager.xcdatamodeld */,
 			);
@@ -129,6 +127,45 @@
 				36902356260292F400066F47 /* Info.plist */,
 			);
 			path = "My Personal ManagerUITests";
+			sourceTree = "<group>";
+		};
+		369023652602931200066F47 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3690232F260292EF00066F47 /* AppDelegate.swift */,
+				36902331260292F000066F47 /* SceneDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		369023692602933000066F47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				36902335260292F000066F47 /* Main.storyboard */,
+				3690233D260292F400066F47 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3690236A2602933D00066F47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3690236B2602934400066F47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3690236C2602934F00066F47 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +298,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36902334260292F000066F47 /* ViewController.swift in Sources */,
 				36902330260292EF00066F47 /* AppDelegate.swift in Sources */,
 				3690233A260292F000066F47 /* My_Personal_Manager.xcdatamodeld in Sources */,
 				36902332260292F000066F47 /* SceneDelegate.swift in Sources */,
