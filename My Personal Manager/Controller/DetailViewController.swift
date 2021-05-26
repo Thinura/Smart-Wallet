@@ -15,6 +15,8 @@ protocol DetailViewControllerDelegate {
 
 class DetailViewController: UIViewController,  NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate{
     
+    let eventStore : EKEventStore = EKEventStore()
+
     var detailVC: DetailViewController? = nil
     var managedOC: NSManagedObjectContext? = nil
     let now: Date = Date()
@@ -402,9 +404,28 @@ class DetailViewController: UIViewController,  NSFetchedResultsControllerDelegat
         if editingStyle == .delete{
             let context = fetchedResultsController.managedObjectContext
             let deleteExpense = (self.selectedCategory?.expenses?.allObjects as! [Expense])[indexPath.row]
+            if(deleteExpense.eventId! != ""){
+                let event = self.eventStore.event(withIdentifier: deleteExpense.eventId!)!
+                    do{
+                        try             self.eventStore.remove(event, span: .futureEvents)
+                        
+                    }catch let error as NSError{
+                        print("Failed to REMOVE from calendar event with error: \(error)")
+                    }
+            }
+            
+            let reminder = eventStore.calendarItem(withIdentifier: deleteExpense.reminderId!) as! EKReminder
+            do{
+                try             self.eventStore.remove(reminder, commit: true)
+                
+                
+            }catch let error as NSError{
+                print("Failed to REMOVE from calendar reminder with error: \(error)")
+            }
+            
             context.delete(deleteExpense)
+            
             self.detailDelegate?.completeSaveExpense()
-            //tableView.reloadData()
             do{
                 try context.save()
             } catch{
@@ -423,8 +444,6 @@ class DetailViewController: UIViewController,  NSFetchedResultsControllerDelegat
     func save(){
         print("Detail update")
         self.detailDelegate?.completeSaveExpense()
-        //expenseTableView.reloadData()
-
     }
 }
 
@@ -439,6 +458,7 @@ extension DetailViewController: AddExpenseViewControllerDelegate {
     func completeSave() {
         self.save()
     }
+    
 }
 
 extension DetailViewController: DetailViewControllerDelegate{

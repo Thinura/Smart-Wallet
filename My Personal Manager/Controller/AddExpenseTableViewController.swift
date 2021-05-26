@@ -39,7 +39,8 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
     
     var recurrenceFrequency: EKRecurrenceFrequency = .daily
     
-    var eventId:String = ""
+    var eventstoreEventId:String = ""
+    var eventstoreReminderId:String = ""
     
     @IBOutlet weak var addExpenseButton: UIBarButtonItem!
     
@@ -101,6 +102,8 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
             }
         }
         if let expense = editingExpense{
+            requestPermissionCalendar()
+            requestPermissionReminder()
             if let expenseName = expenseNameTextField{
                 expenseName.text = expense.name
             }
@@ -130,14 +133,16 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
             }
             
             if let expenseAddCalendar = addToCalendarButton{
-                if expense.occurrence == 0 {
-                    expenseAddCalendar.isOn = false
-                } else{
-                    expenseAddCalendar.isOn = true
-                }
+                self.eventstoreEventId = expense.eventId!
+                print("expense.reminder \(expense.reminder)")
+                expenseAddCalendar.isOn = expense.reminder
+                calendarReminder = expense.reminder
             }
             
             if let expenseOccurrence = occurrenceSegmentController{
+                self.eventstoreReminderId = expense.reminderId ?? ""
+                print("expense.occurrence---\(expense.occurrence)")
+                self.selectedOccurrence = expense.occurrence
                 expenseOccurrence.selectedSegmentIndex = Int(expense.occurrence)
             }
         }
@@ -225,49 +230,77 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
     }
     
     func createEvent() {
-            if self.calendarReminder {
-                let startDate = startDatePicker.date
-                let endDate = endDatePicker.date
-//                eventStore.requestAccess(to: .event){ (granted, error) in
-//                    if granted && error == nil{
-                if permissionGrantedCalendar {
-                        DispatchQueue.main.async {
-                            let event: EKEvent = EKEvent(eventStore: self.eventStore)
-                            event.calendar = self.eventStore.defaultCalendarForNewEvents
-
-                            event.title = self.expenseNameTextField.text
-                            event.startDate = endDate
-                            event.endDate = endDate
-                            event.notes = self.expenseNotesTextField.text
-                            
-                            if self.isRecurrence{
-                                let recurrenceRule = EKRecurrenceRule(
-                                    recurrenceWith: self.recurrenceFrequency,
-                                    interval: 1,
-                                    end: EKRecurrenceEnd(end: endDate)
-                                )
-                                event.recurrenceRules = [recurrenceRule]
-                                
-                            }
-    //                        if want to add an alarm
-    //                        let alarm =  EKAlarm(relativeOffset: 0)
-    //                        event.addAlarm(alarm)
-                            
-                            do{
-                                try self.eventStore.save(event, span: .futureEvents)
-                                print("event.eventIdentifier \(event.eventIdentifier)")
-                                self.eventId = event.eventIdentifier
-                            }catch let error as NSError{
-                                print("Failed to save calendar event with error: \(error)")
-                            }
-                        }
-                        print("Save Event")
-            }
-//                    }else{
-//                        print("Failed to save event with error: \(String(describing: error)) or access not granted")
-//                    }
+        if self.calendarReminder {
+            let startDate = startDatePicker.date
+            let endDate = endDatePicker.date
+            if permissionGrantedCalendar {
+                var event:EKEvent
+                if let expense = self.editingExpense{
+                    event = eventStore.event(withIdentifier: expense.eventId!) ?? EKEvent(eventStore: self.eventStore)
+                    
+                }else{
+                    event = EKEvent(eventStore: self.eventStore)
+                }
+                
+                event.calendar = self.eventStore.defaultCalendarForNewEvents
+                
+                event.title = self.expenseNameTextField.text
+                event.startDate = endDate
+                event.endDate = endDate
+                event.notes = self.expenseNotesTextField.text
+                
+                if self.isRecurrence{
+                    let recurrenceRule = EKRecurrenceRule(
+                        recurrenceWith: self.recurrenceFrequency,
+                        interval: 1,
+                        end: EKRecurrenceEnd(end: endDate)
+                    )
+                    event.recurrenceRules = [recurrenceRule]
+                    
+                }
+                //                        if want to add an alarm
+                //                        let alarm =  EKAlarm(relativeOffset: 0)
+                //                        event.addAlarm(alarm)
+                print("where \(event)")
+                do{
+                    try self.eventStore.save(event, span: .futureEvents)
+                    print("Event.eventIdentifier \(event.eventIdentifier)")
+                    self.eventstoreEventId = event.eventIdentifier
+                }catch let error as NSError{
+                    print("Failed to save calendar event with error: \(error)")
+                }
                 //}
+                print("Save Event")
             }
+        }
+    }
+    
+    func deleteEvent(){
+        print("ssss \(self.eventstoreEventId)")
+        if self.eventstoreEventId != "" {
+        let event = eventStore.event(withIdentifier: self.eventstoreEventId) as! EKEvent
+        self.calendarReminder = false
+        self.eventstoreEventId = ""
+        
+        do{
+            try             self.eventStore.remove(event, span: .futureEvents)
+            
+        }catch let error as NSError{
+            print("Failed to REMOVE from calendar event with error: \(error)")
+        }
+        }
+    }
+    
+    func deleteReminder(){
+        let reminder = eventStore.calendarItem(withIdentifier: self.eventstoreReminderId) as! EKReminder
+        self.eventstoreReminderId = ""
+        do{
+            try             self.eventStore.remove(reminder, commit: true)
+            
+            
+        }catch let error as NSError{
+            print("Failed to REMOVE from calendar reminder with error: \(error)")
+        }
     }
     
     func requestPermissionReminder(){
@@ -275,7 +308,7 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
             (granted, error) in
             if granted && error == nil{
                 self.permissionGrantedReminder = true
-
+                
             }else{
                 self.permissionGrantedReminder = false
                 print("Failed to save reminder with error: \(String(describing: error)) or access not granted")
@@ -288,7 +321,7 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
             (granted, error) in
             if granted && error == nil{
                 self.permissionGrantedCalendar = true
-
+                
             }else{
                 self.permissionGrantedCalendar = false
                 print("Failed to save event with error: \(String(describing: error)) or access not granted")
@@ -297,103 +330,50 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
     }
     
     func createReminder() {
-        //if self.calendarReminder {
-            let startDate = startDatePicker.date
-            let endDate = endDatePicker.date
-//            var isRecurrence = true
-//
-//            var recurrenceFrequency: EKRecurrenceFrequency = .daily
-//            let occurrenceIndex = selectedOccurrence
-//            print("selectedOccurrence \(selectedOccurrence)")
-//            switch occurrenceIndex{
-//            case 1:
-//                recurrenceFrequency = .daily
-//            case 2:
-//                recurrenceFrequency = .weekly
-//            case 3:
-//                recurrenceFrequency = .monthly
-//            default:
-//                isRecurrence = false
-//            }
-            
-            
-//            eventStore.requestAccess(to: .reminder){
-//                (granted, error) in
-//                if granted && error == nil{
+        let startDate = startDatePicker.date
+        let endDate = endDatePicker.date
         if permissionGrantedReminder {
             
-                    DispatchQueue.main.async {
-                        let reminder:EKReminder = EKReminder(eventStore: self.eventStore)
-                        reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
-
-                        reminder.title = self.expenseNameTextField.text
-                        reminder.notes = self.expenseNotesTextField.text
-                        reminder.priority = Int(EKReminderPriority.high.rawValue)
-                        //reminder.startDateComponents = Calendar.current.dateComponents([.year,.day,.weekday,.month], from: startDate)
-                        reminder.dueDateComponents = Calendar.current.dateComponents([.year,.day,.weekday,.month,.timeZone,.hour,.minute,.second], from: endDate)
-                        if self.isRecurrence{
-                            let recurrenceRule = EKRecurrenceRule(
-                                recurrenceWith: self.recurrenceFrequency,
-                                interval: 1,
-                                end: EKRecurrenceEnd(end: endDate)
-                            )
-                            reminder.recurrenceRules = [recurrenceRule]
-
-                        }
-                        
-                        let alarm =  EKAlarm(relativeOffset: 0)
-                        reminder.addAlarm(alarm)
-
-                        do{
-                            try self.eventStore.save(reminder, commit: true)
-                        }catch let error as NSError{
-                            print("Failed to save calendar event with error: \(error)")
-                        }
-                    }
-                    print("Save Reminder")
-        }
-//                }else{
-//                    print("Failed to save reminder with error: \(String(describing: error)) or access not granted")
-//                }
-            //}
+            //DispatchQueue.main.async {
+            var reminder:EKReminder
             
-//            eventStore.requestAccess(to: .event){ (granted, error) in
-//                if granted && error == nil{
-//                    DispatchQueue.main.async {
-//                        let event: EKEvent = EKEvent(eventStore: self.eventStore)
-//                        event.calendar = self.eventStore.defaultCalendarForNewEvents
-//
-//                        event.title = self.expenseNameTextField.text
-//                        event.startDate = endDate
-//                        event.endDate = endDate
-//                        event.notes = self.expenseNotesTextField.text
-//
-//                        if self.isRecurrence{
-//                            let recurrenceRule = EKRecurrenceRule(
-//                                recurrenceWith: self.recurrenceFrequency,
-//                                interval: 1,
-//                                end: EKRecurrenceEnd(end: endDate)
-//                            )
-//                            event.recurrenceRules = [recurrenceRule]
-//
-//                        }
-////                        if want to add an alarm
-////                        let alarm =  EKAlarm(relativeOffset: 0)
-////                        event.addAlarm(alarm)
-//
-//                        do{
-//                            try self.eventStore.save(event, span: .futureEvents)
-//                        }catch let error as NSError{
-//                            print("Failed to save calendar event with error: \(error)")
-//                        }
-//                    }
-//                    print("Save Event")
-//                }else{
-//                    print("Failed to save event with error: \(String(describing: error)) or access not granted")
-//                }
-//            }
-        
-        //}
+            if let expense = editingExpense{
+                reminder = eventStore.calendarItem(withIdentifier: expense.reminderId ?? "") as! EKReminder
+                
+            }else{
+                reminder = EKReminder(eventStore: self.eventStore)
+            }
+            
+            reminder.calendar = self.eventStore.defaultCalendarForNewReminders()
+            
+            reminder.title = self.expenseNameTextField.text
+            reminder.notes = self.expenseNotesTextField.text
+            reminder.priority = Int(EKReminderPriority.high.rawValue)
+            //reminder.startDateComponents = Calendar.current.dateComponents([.year,.day,.weekday,.month], from: startDate)
+            reminder.dueDateComponents = Calendar.current.dateComponents([.year,.day,.weekday,.month,.timeZone,.hour,.minute,.second], from: endDate)
+            if self.isRecurrence{
+                let recurrenceRule = EKRecurrenceRule(
+                    recurrenceWith: self.recurrenceFrequency,
+                    interval: 1,
+                    end: EKRecurrenceEnd(end: endDate)
+                )
+                reminder.recurrenceRules = [recurrenceRule]
+                
+            }
+            
+            let alarm =  EKAlarm(relativeOffset: 0)
+            reminder.addAlarm(alarm)
+            
+            do{
+                try self.eventStore.save(reminder, commit: true)
+                self.eventstoreReminderId = reminder.calendarItemIdentifier
+                
+            }catch let error as NSError{
+                print("Failed to save calendar event with error: \(error)")
+            }
+            // }
+            print("Save Reminder")
+        }
     }
     
     @IBAction func handleOccurrenceSegment(_ sender: UISegmentedControl) {
@@ -437,7 +417,6 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
             }
             let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             
-            //let managedContext = appDelegate.persistentContainer.viewContext
             let entity = NSEntityDescription.entity(forEntityName: "Expense", in: managedContext)!
             var expense = NSManagedObject()
             if editingExpenseMode {
@@ -446,44 +425,56 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
                 expense = NSManagedObject(entity: entity, insertInto: managedContext)
             }
             
+            createEvent()
+            createReminder()
+            if !self.calendarReminder{
+                self.deleteEvent()
+                
+            }
+            print("self.selectedOccurrence save\(self.selectedOccurrence)")
             expense.setValue(expenseNameTextField.text!, forKey: "name")
             expense.setValue(expenseNotesTextField.text!, forKey: "note")
             expense.setValue(Double(expenseAmountTextField.text!)!, forKey: "amount")
-            expense.setValue(Int64(self.selectedOccurrence), forKey: "occurrence")
+            expense.setValue(self.selectedOccurrence, forKey: "occurrence")
             expense.setValue(startDatePicker.date, forKey: "startDate")
             expense.setValue(endDatePicker.date, forKey: "endDate")
             expense.setValue(self.calendarReminder, forKey: "reminder")
             expense.setValue(selectedCategory?.name, forKey: "category")
+            expense.setValue(self.eventstoreEventId, forKey: "eventId")
+            expense.setValue(self.eventstoreReminderId, forKey: "reminderId")
             selectedCategory?.addToExpenses(expense as! Expense)
             print("expense \(expense)")
             
-            createEvent()
-            createReminder()
-            let newEvent = eventStore.event(withIdentifier: self.eventId)
-//            eventStore.pre
-//            eventStore.remove(<#T##reminder: EKReminder##EKReminder#>, commit: <#T##Bool#>)
-            print("event id \(self.eventId)")
-            print("newevent \(newEvent?.eventIdentifier)")
-//            do{
-//                try self.eventStore.remove(newEvent!, span: .futureEvents)
-//            }catch let error as NSError{
-//                print("Failed to save calendar event with error: \(error)")
-//            }
             
-            if newEvent != nil{
+            let newEvent = eventStore.event(withIdentifier: self.eventstoreEventId)
+            let newCal = eventStore.calendarItem(withIdentifier: self.eventstoreReminderId) as! EKReminder
+            //            do{
+            //                try             self.eventStore.remove(newEvent!, span: .futureEvents)
+            //
+            //            }catch let error as NSError{
+            //                print("Failed to REMOVE from calendar event with error: \(error)")
+            //            }
+            
+            //            do{
+            //                            try             self.eventStore.remove(newCal, commit: true)
+            //
+            //
+            //                        }catch let error as NSError{
+            //                            print("Failed to REMOVE from calendar reminder with error: \(error)")
+            //                        }
+            
+            
             do{
                 // Save to Core data
                 try managedContext.save()
                 self.addExpenseDelegate?.completeSave()
-                print("before append")
                 expenses.append(expense)
-                print("after all")
             }catch _ as NSError{
                 let alert = UIAlertController(title: "Error", message: "An error occured while saving the project.", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
             }
-            }
+            
         }else{
             let alert = UIAlertController(title: "Error", message: "Please fill the required fields.", preferredStyle: UIAlertController.Style.alert)
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
@@ -495,6 +486,7 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
     }
     
 }
+
 
 
 extension AddExpenseViewController{
@@ -520,7 +512,7 @@ extension AddExpenseViewController{
 }
 
 extension AddExpenseViewController: AddExpenseViewControllerDelegate{
-    func completeSave() {
-        print("uppppp")
-    }
+    
+    
+    func completeSave() {}
 }

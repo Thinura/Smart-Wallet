@@ -8,10 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3604B531265BE43700305F8D /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3604B530265BE43700305F8D /* PieChartView.swift */; };
-		3665F989265EA1EB00E669A9 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665F985265EA1EB00E669A9 /* Expense+CoreDataClass.swift */; };
-		3665F98A265EA1EB00E669A9 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665F986265EA1EB00E669A9 /* Expense+CoreDataProperties.swift */; };
-		3665F98B265EA1EB00E669A9 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665F987265EA1EB00E669A9 /* Category+CoreDataClass.swift */; };
-		3665F98C265EA1EB00E669A9 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3665F988265EA1EB00E669A9 /* Category+CoreDataProperties.swift */; };
 		366AC870264A8060007BEF71 /* MasterViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366AC86F264A8060007BEF71 /* MasterViewTableViewController.swift */; };
 		366AC875264A82B4007BEF71 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366AC873264A82B4007BEF71 /* CategoryTableViewCell.swift */; };
 		366AC876264A82B4007BEF71 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366AC874264A82B4007BEF71 /* CategoryTableViewCell.xib */; };
@@ -22,6 +18,10 @@
 		3684FE032649542300493070 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684FE022649542300493070 /* Colours.swift */; };
 		3684FE052649547B00493070 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684FE042649547B00493070 /* Formatter.swift */; };
 		3684FE0F264971BC00493070 /* AddCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684FE0E264971BC00493070 /* AddCategoryTableViewController.swift */; };
+		368B6560265EE6230096D195 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B655C265EE6230096D195 /* Category+CoreDataClass.swift */; };
+		368B6561265EE6230096D195 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B655D265EE6230096D195 /* Category+CoreDataProperties.swift */; };
+		368B6562265EE6230096D195 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B655E265EE6230096D195 /* Expense+CoreDataClass.swift */; };
+		368B6563265EE6230096D195 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B655F265EE6230096D195 /* Expense+CoreDataProperties.swift */; };
 		36902330260292EF00066F47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690232F260292EF00066F47 /* AppDelegate.swift */; };
 		36902332260292F000066F47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36902331260292F000066F47 /* SceneDelegate.swift */; };
 		36902337260292F000066F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36902335260292F000066F47 /* Main.storyboard */; };
@@ -58,10 +58,6 @@
 
 /* Begin PBXFileReference section */
 		3604B530265BE43700305F8D /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
-		3665F985265EA1EB00E669A9 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3665F986265EA1EB00E669A9 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3665F987265EA1EB00E669A9 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
-		3665F988265EA1EB00E669A9 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		366AC86F264A8060007BEF71 /* MasterViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewTableViewController.swift; sourceTree = "<group>"; };
 		366AC873264A82B4007BEF71 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		366AC874264A82B4007BEF71 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
@@ -72,6 +68,10 @@
 		3684FE022649542300493070 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
 		3684FE042649547B00493070 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		3684FE0E264971BC00493070 /* AddCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTableViewController.swift; sourceTree = "<group>"; };
+		368B655C265EE6230096D195 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		368B655D265EE6230096D195 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		368B655E265EE6230096D195 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
+		368B655F265EE6230096D195 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3690232C260292EF00066F47 /* My Personal Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Personal Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3690232F260292EF00066F47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		36902331260292F000066F47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -225,10 +225,10 @@
 		3690236A2602933D00066F47 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				3665F985265EA1EB00E669A9 /* Expense+CoreDataClass.swift */,
-				3665F986265EA1EB00E669A9 /* Expense+CoreDataProperties.swift */,
-				3665F987265EA1EB00E669A9 /* Category+CoreDataClass.swift */,
-				3665F988265EA1EB00E669A9 /* Category+CoreDataProperties.swift */,
+				368B655C265EE6230096D195 /* Category+CoreDataClass.swift */,
+				368B655D265EE6230096D195 /* Category+CoreDataProperties.swift */,
+				368B655E265EE6230096D195 /* Expense+CoreDataClass.swift */,
+				368B655F265EE6230096D195 /* Expense+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -416,21 +416,21 @@
 			files = (
 				366AC879264A82C5007BEF71 /* ExpenseTableViewCell.swift in Sources */,
 				36A57E5A264A19C900BA5EA3 /* StoreDataExpense.swift in Sources */,
+				368B6562265EE6230096D195 /* Expense+CoreDataClass.swift in Sources */,
 				3684FDFF264953E000493070 /* AddExpenseTableViewController.swift in Sources */,
 				36902330260292EF00066F47 /* AppDelegate.swift in Sources */,
 				3604B531265BE43700305F8D /* PieChartView.swift in Sources */,
 				3684FE052649547B00493070 /* Formatter.swift in Sources */,
 				36C620E126567516009E6B68 /* Calculation.swift in Sources */,
+				368B6561265EE6230096D195 /* Category+CoreDataProperties.swift in Sources */,
 				36DF6396264C359600CB0B0F /* LinearProgressBar.swift in Sources */,
 				36AA68AF265D2C0200B8187B /* CoreDataManager.swift in Sources */,
-				3665F98C265EA1EB00E669A9 /* Category+CoreDataProperties.swift in Sources */,
+				368B6563265EE6230096D195 /* Expense+CoreDataProperties.swift in Sources */,
 				366AC870264A8060007BEF71 /* MasterViewTableViewController.swift in Sources */,
 				36A46F572602F84300247D5C /* UITableView.swift in Sources */,
 				366AC87E264AAA80007BEF71 /* DetailViewController.swift in Sources */,
-				3665F98A265EA1EB00E669A9 /* Expense+CoreDataProperties.swift in Sources */,
-				3665F989265EA1EB00E669A9 /* Expense+CoreDataClass.swift in Sources */,
 				36A57E57264A16BF00BA5EA3 /* StoreDataCategory.swift in Sources */,
-				3665F98B265EA1EB00E669A9 /* Category+CoreDataClass.swift in Sources */,
+				368B6560265EE6230096D195 /* Category+CoreDataClass.swift in Sources */,
 				36DF6393264C150F00CB0B0F /* NotesViewController.swift in Sources */,
 				3690233A260292F000066F47 /* My_Personal_Manager.xcdatamodeld in Sources */,
 				3684FE0F264971BC00493070 /* AddCategoryTableViewController.swift in Sources */,

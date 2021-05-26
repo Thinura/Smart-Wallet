@@ -7,6 +7,7 @@
 
 import UIKit
 import CoreData
+import EventKit
 
 
 class MasterViewTableViewController: UITableViewController, NSFetchedResultsControllerDelegate, UIPopoverPresentationControllerDelegate {
@@ -17,6 +18,8 @@ class MasterViewTableViewController: UITableViewController, NSFetchedResultsCont
     @IBOutlet weak var categoriesTable: UITableView!
     @IBOutlet weak var sortedButton: UIBarButtonItem!
     
+    let eventStore : EKEventStore = EKEventStore()
+
     var sortedAlphabetically: Bool = false
     var indexSelectedCategory: IndexPath?
         
@@ -131,7 +134,30 @@ class MasterViewTableViewController: UITableViewController, NSFetchedResultsCont
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let context = fetchedResultsController.managedObjectContext
-            context.delete(fetchedResultsController.object(at: indexPath))
+            let object = fetchedResultsController.object(at: indexPath)
+            let deleteExpenses = object.expenses?.allObjects as! [Expense]
+            for expense in deleteExpenses{
+                if(expense.eventId! != ""){
+                    let event = self.eventStore.event(withIdentifier: expense.eventId!)!
+                        do{
+                            try             self.eventStore.remove(event, span: .futureEvents)
+                            
+                        }catch let error as NSError{
+                            print("Failed to REMOVE from calendar event with error: \(error)")
+                        }
+                }
+                
+                let reminder = eventStore.calendarItem(withIdentifier: expense.reminderId!) as! EKReminder
+                do{
+                    try             self.eventStore.remove(reminder, commit: true)
+                    
+                    
+                }catch let error as NSError{
+                    print("Failed to REMOVE from calendar reminder with error: \(error)")
+                }
+            }
+            
+            context.delete(object)
             
             do {
                 try context.save()
