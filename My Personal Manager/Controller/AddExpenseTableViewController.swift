@@ -39,6 +39,8 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
     
     var recurrenceFrequency: EKRecurrenceFrequency = .daily
     
+    var eventId:String = ""
+    
     @IBOutlet weak var addExpenseButton: UIBarButtonItem!
     
     @IBOutlet weak var expenseNameTextField: UITextField!
@@ -253,6 +255,8 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
                             
                             do{
                                 try self.eventStore.save(event, span: .futureEvents)
+                                print("event.eventIdentifier \(event.eventIdentifier)")
+                                self.eventId = event.eventIdentifier
                             }catch let error as NSError{
                                 print("Failed to save calendar event with error: \(error)")
                             }
@@ -455,6 +459,18 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
             
             createEvent()
             createReminder()
+            let newEvent = eventStore.event(withIdentifier: self.eventId)
+//            eventStore.pre
+//            eventStore.remove(<#T##reminder: EKReminder##EKReminder#>, commit: <#T##Bool#>)
+            print("event id \(self.eventId)")
+            print("newevent \(newEvent?.eventIdentifier)")
+//            do{
+//                try self.eventStore.remove(newEvent!, span: .futureEvents)
+//            }catch let error as NSError{
+//                print("Failed to save calendar event with error: \(error)")
+//            }
+            
+            if newEvent != nil{
             do{
                 // Save to Core data
                 try managedContext.save()
@@ -466,6 +482,7 @@ class AddExpenseViewController: UITableViewController, UIPopoverPresentationCont
                 let alert = UIAlertController(title: "Error", message: "An error occured while saving the project.", preferredStyle: UIAlertController.Style.alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+            }
             }
         }else{
             let alert = UIAlertController(title: "Error", message: "Please fill the required fields.", preferredStyle: UIAlertController.Style.alert)
