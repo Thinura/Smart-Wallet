@@ -1,0 +1,759 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3604B531265BE43700305F8D /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3604B530265BE43700305F8D /* PieChartView.swift */; };
+		366AC870264A8060007BEF71 /* MasterViewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366AC86F264A8060007BEF71 /* MasterViewTableViewController.swift */; };
+		366AC875264A82B4007BEF71 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366AC873264A82B4007BEF71 /* CategoryTableViewCell.swift */; };
+		366AC876264A82B4007BEF71 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366AC874264A82B4007BEF71 /* CategoryTableViewCell.xib */; };
+		366AC879264A82C5007BEF71 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366AC877264A82C5007BEF71 /* ExpenseTableViewCell.swift */; };
+		366AC87A264A82C5007BEF71 /* ExpenseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 366AC878264A82C5007BEF71 /* ExpenseTableViewCell.xib */; };
+		366AC87E264AAA80007BEF71 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366AC87D264AAA80007BEF71 /* DetailViewController.swift */; };
+		3684FDFF264953E000493070 /* AddExpenseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684FDFE264953E000493070 /* AddExpenseTableViewController.swift */; };
+		3684FE032649542300493070 /* Colours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684FE022649542300493070 /* Colours.swift */; };
+		3684FE052649547B00493070 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684FE042649547B00493070 /* Formatter.swift */; };
+		3684FE0F264971BC00493070 /* AddCategoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3684FE0E264971BC00493070 /* AddCategoryTableViewController.swift */; };
+		368B6560265EE6230096D195 /* Category+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B655C265EE6230096D195 /* Category+CoreDataClass.swift */; };
+		368B6561265EE6230096D195 /* Category+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B655D265EE6230096D195 /* Category+CoreDataProperties.swift */; };
+		368B6562265EE6230096D195 /* Expense+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B655E265EE6230096D195 /* Expense+CoreDataClass.swift */; };
+		368B6563265EE6230096D195 /* Expense+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368B655F265EE6230096D195 /* Expense+CoreDataProperties.swift */; };
+		36902330260292EF00066F47 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3690232F260292EF00066F47 /* AppDelegate.swift */; };
+		36902332260292F000066F47 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36902331260292F000066F47 /* SceneDelegate.swift */; };
+		36902337260292F000066F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 36902335260292F000066F47 /* Main.storyboard */; };
+		3690233A260292F000066F47 /* Smart Wallet.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 36902338260292F000066F47 /* Smart Wallet.xcdatamodeld */; };
+		3690233C260292F400066F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3690233B260292F400066F47 /* Assets.xcassets */; };
+		3690233F260292F400066F47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3690233D260292F400066F47 /* LaunchScreen.storyboard */; };
+		36A46F572602F84300247D5C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A46F562602F84300247D5C /* UITableView.swift */; };
+		36A57E57264A16BF00BA5EA3 /* StoreDataCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A57E56264A16BF00BA5EA3 /* StoreDataCategory.swift */; };
+		36A57E5A264A19C900BA5EA3 /* StoreDataExpense.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A57E59264A19C900BA5EA3 /* StoreDataExpense.swift */; };
+		36AA68AF265D2C0200B8187B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36AA68AE265D2C0200B8187B /* CoreDataManager.swift */; };
+		36C620E126567516009E6B68 /* Calculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C620E026567516009E6B68 /* Calculation.swift */; };
+		36DF6393264C150F00CB0B0F /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DF6392264C150F00CB0B0F /* NotesViewController.swift */; };
+		36DF6396264C359600CB0B0F /* LinearProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DF6395264C359600CB0B0F /* LinearProgressBar.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		36902346260292F400066F47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36902324260292EF00066F47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3690232B260292EF00066F47;
+			remoteInfo = "My Personal Manager";
+		};
+		36902351260292F400066F47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 36902324260292EF00066F47 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3690232B260292EF00066F47;
+			remoteInfo = "My Personal Manager";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3604B530265BE43700305F8D /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		366AC86F264A8060007BEF71 /* MasterViewTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewTableViewController.swift; sourceTree = "<group>"; };
+		366AC873264A82B4007BEF71 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		366AC874264A82B4007BEF71 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		366AC877264A82C5007BEF71 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
+		366AC878264A82C5007BEF71 /* ExpenseTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpenseTableViewCell.xib; sourceTree = "<group>"; };
+		366AC87D264AAA80007BEF71 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		3684FDFE264953E000493070 /* AddExpenseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseTableViewController.swift; sourceTree = "<group>"; };
+		3684FE022649542300493070 /* Colours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colours.swift; sourceTree = "<group>"; };
+		3684FE042649547B00493070 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
+		3684FE0E264971BC00493070 /* AddCategoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryTableViewController.swift; sourceTree = "<group>"; };
+		368B655C265EE6230096D195 /* Category+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataClass.swift"; sourceTree = "<group>"; };
+		368B655D265EE6230096D195 /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		368B655E265EE6230096D195 /* Expense+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataClass.swift"; sourceTree = "<group>"; };
+		368B655F265EE6230096D195 /* Expense+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expense+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3690232C260292EF00066F47 /* Smart Wallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Wallet.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3690232F260292EF00066F47 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		36902331260292F000066F47 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		36902336260292F000066F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		36902339260292F000066F47 /* My_Personal_Manager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = My_Personal_Manager.xcdatamodel; sourceTree = "<group>"; };
+		3690233B260292F400066F47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3690233E260292F400066F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		36902340260292F400066F47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36902345260292F400066F47 /* Smart WalletTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart WalletTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36902350260292F400066F47 /* Smart WalletUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart WalletUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		36A46F562602F84300247D5C /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		36A57E56264A16BF00BA5EA3 /* StoreDataCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataCategory.swift; sourceTree = "<group>"; };
+		36A57E59264A19C900BA5EA3 /* StoreDataExpense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreDataExpense.swift; sourceTree = "<group>"; };
+		36AA68AE265D2C0200B8187B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		36C620E026567516009E6B68 /* Calculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculation.swift; sourceTree = "<group>"; };
+		36DF6392264C150F00CB0B0F /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		36DF6395264C359600CB0B0F /* LinearProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearProgressBar.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		36902329260292EF00066F47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36902342260292F400066F47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3690234D260292F400066F47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3604B52F265BE41C00305F8D /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				3604B530265BE43700305F8D /* PieChartView.swift */,
+			);
+			path = PieChart;
+			sourceTree = "<group>";
+		};
+		366AC871264A8114007BEF71 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				366AC873264A82B4007BEF71 /* CategoryTableViewCell.swift */,
+				366AC874264A82B4007BEF71 /* CategoryTableViewCell.xib */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		366AC872264A8123007BEF71 /* Expense */ = {
+			isa = PBXGroup;
+			children = (
+				366AC877264A82C5007BEF71 /* ExpenseTableViewCell.swift */,
+				366AC878264A82C5007BEF71 /* ExpenseTableViewCell.xib */,
+			);
+			path = Expense;
+			sourceTree = "<group>";
+		};
+		36902323260292EF00066F47 = {
+			isa = PBXGroup;
+			children = (
+				3690232E260292EF00066F47 /* Smart Wallet */,
+				3690232D260292EF00066F47 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3690232D260292EF00066F47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3690232C260292EF00066F47 /* Smart Wallet.app */,
+				36902345260292F400066F47 /* Smart WalletTests.xctest */,
+				36902350260292F400066F47 /* Smart WalletUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3690232E260292EF00066F47 /* Smart Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				36A46F552602F80E00247D5C /* Extensions */,
+				3690236C2602934F00066F47 /* Helper */,
+				3690236B2602934400066F47 /* Controller */,
+				3690236A2602933D00066F47 /* Model */,
+				369023692602933000066F47 /* View */,
+				369023652602931200066F47 /* Common */,
+				3690233B260292F400066F47 /* Assets.xcassets */,
+				36902340260292F400066F47 /* Info.plist */,
+				36902338260292F000066F47 /* Smart Wallet.xcdatamodeld */,
+			);
+			path = "Smart Wallet";
+			sourceTree = "<group>";
+		};
+		369023652602931200066F47 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				3690232F260292EF00066F47 /* AppDelegate.swift */,
+				36902331260292F000066F47 /* SceneDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		369023692602933000066F47 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3604B52F265BE41C00305F8D /* PieChart */,
+				36DF6394264C354500CB0B0F /* ProgressBar */,
+				366AC872264A8123007BEF71 /* Expense */,
+				366AC871264A8114007BEF71 /* Category */,
+				36902335260292F000066F47 /* Main.storyboard */,
+				3690233D260292F400066F47 /* LaunchScreen.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3690236A2602933D00066F47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				368B655C265EE6230096D195 /* Category+CoreDataClass.swift */,
+				368B655D265EE6230096D195 /* Category+CoreDataProperties.swift */,
+				368B655E265EE6230096D195 /* Expense+CoreDataClass.swift */,
+				368B655F265EE6230096D195 /* Expense+CoreDataProperties.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3690236B2602934400066F47 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3684FDFE264953E000493070 /* AddExpenseTableViewController.swift */,
+				3684FE0E264971BC00493070 /* AddCategoryTableViewController.swift */,
+				366AC86F264A8060007BEF71 /* MasterViewTableViewController.swift */,
+				366AC87D264AAA80007BEF71 /* DetailViewController.swift */,
+				36DF6392264C150F00CB0B0F /* NotesViewController.swift */,
+				36AA68AE265D2C0200B8187B /* CoreDataManager.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3690236C2602934F00066F47 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				36A57E58264A199100BA5EA3 /* StoreData */,
+				3684FE022649542300493070 /* Colours.swift */,
+				3684FE042649547B00493070 /* Formatter.swift */,
+				36C620E026567516009E6B68 /* Calculation.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		36A46F552602F80E00247D5C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				36A46F562602F84300247D5C /* UITableView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		36A57E58264A199100BA5EA3 /* StoreData */ = {
+			isa = PBXGroup;
+			children = (
+				36A57E56264A16BF00BA5EA3 /* StoreDataCategory.swift */,
+				36A57E59264A19C900BA5EA3 /* StoreDataExpense.swift */,
+			);
+			path = StoreData;
+			sourceTree = "<group>";
+		};
+		36DF6394264C354500CB0B0F /* ProgressBar */ = {
+			isa = PBXGroup;
+			children = (
+				36DF6395264C359600CB0B0F /* LinearProgressBar.swift */,
+			);
+			path = ProgressBar;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3690232B260292EF00066F47 /* Smart Wallet */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36902359260292F400066F47 /* Build configuration list for PBXNativeTarget "Smart Wallet" */;
+			buildPhases = (
+				36902328260292EF00066F47 /* Sources */,
+				36902329260292EF00066F47 /* Frameworks */,
+				3690232A260292EF00066F47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart Wallet";
+			productName = "My Personal Manager";
+			productReference = 3690232C260292EF00066F47 /* Smart Wallet.app */;
+			productType = "com.apple.product-type.application";
+		};
+		36902344260292F400066F47 /* Smart WalletTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3690235C260292F400066F47 /* Build configuration list for PBXNativeTarget "Smart WalletTests" */;
+			buildPhases = (
+				36902341260292F400066F47 /* Sources */,
+				36902342260292F400066F47 /* Frameworks */,
+				36902343260292F400066F47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36902347260292F400066F47 /* PBXTargetDependency */,
+			);
+			name = "Smart WalletTests";
+			productName = "My Personal ManagerTests";
+			productReference = 36902345260292F400066F47 /* Smart WalletTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3690234F260292F400066F47 /* Smart WalletUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3690235F260292F400066F47 /* Build configuration list for PBXNativeTarget "Smart WalletUITests" */;
+			buildPhases = (
+				3690234C260292F400066F47 /* Sources */,
+				3690234D260292F400066F47 /* Frameworks */,
+				3690234E260292F400066F47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				36902352260292F400066F47 /* PBXTargetDependency */,
+			);
+			name = "Smart WalletUITests";
+			productName = "My Personal ManagerUITests";
+			productReference = 36902350260292F400066F47 /* Smart WalletUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		36902324260292EF00066F47 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					3690232B260292EF00066F47 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					36902344260292F400066F47 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 3690232B260292EF00066F47;
+					};
+					3690234F260292F400066F47 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 3690232B260292EF00066F47;
+					};
+				};
+			};
+			buildConfigurationList = 36902327260292EF00066F47 /* Build configuration list for PBXProject "Smart Wallet" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 36902323260292EF00066F47;
+			productRefGroup = 3690232D260292EF00066F47 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3690232B260292EF00066F47 /* Smart Wallet */,
+				36902344260292F400066F47 /* Smart WalletTests */,
+				3690234F260292F400066F47 /* Smart WalletUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3690232A260292EF00066F47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3690233F260292F400066F47 /* LaunchScreen.storyboard in Resources */,
+				3690233C260292F400066F47 /* Assets.xcassets in Resources */,
+				36902337260292F000066F47 /* Main.storyboard in Resources */,
+				366AC876264A82B4007BEF71 /* CategoryTableViewCell.xib in Resources */,
+				366AC87A264A82C5007BEF71 /* ExpenseTableViewCell.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36902343260292F400066F47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3690234E260292F400066F47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		36902328260292EF00066F47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				366AC879264A82C5007BEF71 /* ExpenseTableViewCell.swift in Sources */,
+				36A57E5A264A19C900BA5EA3 /* StoreDataExpense.swift in Sources */,
+				368B6562265EE6230096D195 /* Expense+CoreDataClass.swift in Sources */,
+				3684FDFF264953E000493070 /* AddExpenseTableViewController.swift in Sources */,
+				36902330260292EF00066F47 /* AppDelegate.swift in Sources */,
+				3604B531265BE43700305F8D /* PieChartView.swift in Sources */,
+				3684FE052649547B00493070 /* Formatter.swift in Sources */,
+				36C620E126567516009E6B68 /* Calculation.swift in Sources */,
+				368B6561265EE6230096D195 /* Category+CoreDataProperties.swift in Sources */,
+				36DF6396264C359600CB0B0F /* LinearProgressBar.swift in Sources */,
+				36AA68AF265D2C0200B8187B /* CoreDataManager.swift in Sources */,
+				368B6563265EE6230096D195 /* Expense+CoreDataProperties.swift in Sources */,
+				366AC870264A8060007BEF71 /* MasterViewTableViewController.swift in Sources */,
+				36A46F572602F84300247D5C /* UITableView.swift in Sources */,
+				366AC87E264AAA80007BEF71 /* DetailViewController.swift in Sources */,
+				36A57E57264A16BF00BA5EA3 /* StoreDataCategory.swift in Sources */,
+				368B6560265EE6230096D195 /* Category+CoreDataClass.swift in Sources */,
+				36DF6393264C150F00CB0B0F /* NotesViewController.swift in Sources */,
+				3690233A260292F000066F47 /* Smart Wallet.xcdatamodeld in Sources */,
+				3684FE0F264971BC00493070 /* AddCategoryTableViewController.swift in Sources */,
+				366AC875264A82B4007BEF71 /* CategoryTableViewCell.swift in Sources */,
+				3684FE032649542300493070 /* Colours.swift in Sources */,
+				36902332260292F000066F47 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		36902341260292F400066F47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3690234C260292F400066F47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		36902347260292F400066F47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3690232B260292EF00066F47 /* Smart Wallet */;
+			targetProxy = 36902346260292F400066F47 /* PBXContainerItemProxy */;
+		};
+		36902352260292F400066F47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3690232B260292EF00066F47 /* Smart Wallet */;
+			targetProxy = 36902351260292F400066F47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		36902335260292F000066F47 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36902336260292F000066F47 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3690233D260292F400066F47 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3690233E260292F400066F47 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		36902357260292F400066F47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		36902358260292F400066F47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3690235A260292F400066F47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SBSZDGJCL;
+				INFOPLIST_FILE = "$(SRCROOT)/Smart Wallet/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinura.Smart-Wallet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		3690235B260292F400066F47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SBSZDGJCL;
+				INFOPLIST_FILE = "$(SRCROOT)/Smart Wallet/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinura.Smart-Wallet";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Release;
+		};
+		3690235D260292F400066F47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SBSZDGJCL;
+				INFOPLIST_FILE = "My Personal ManagerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinura.My-Personal-ManagerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Wallet.app/Smart Wallet";
+			};
+			name = Debug;
+		};
+		3690235E260292F400066F47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SBSZDGJCL;
+				INFOPLIST_FILE = "My Personal ManagerTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinura.My-Personal-ManagerTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Wallet.app/Smart Wallet";
+			};
+			name = Release;
+		};
+		36902360260292F400066F47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SBSZDGJCL;
+				INFOPLIST_FILE = "My Personal ManagerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinura.My-Personal-ManagerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "My Personal Manager";
+			};
+			name = Debug;
+		};
+		36902361260292F400066F47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8SBSZDGJCL;
+				INFOPLIST_FILE = "My Personal ManagerUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.thinura.My-Personal-ManagerUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "My Personal Manager";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		36902327260292EF00066F47 /* Build configuration list for PBXProject "Smart Wallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36902357260292F400066F47 /* Debug */,
+				36902358260292F400066F47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		36902359260292F400066F47 /* Build configuration list for PBXNativeTarget "Smart Wallet" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3690235A260292F400066F47 /* Debug */,
+				3690235B260292F400066F47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3690235C260292F400066F47 /* Build configuration list for PBXNativeTarget "Smart WalletTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3690235D260292F400066F47 /* Debug */,
+				3690235E260292F400066F47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3690235F260292F400066F47 /* Build configuration list for PBXNativeTarget "Smart WalletUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36902360260292F400066F47 /* Debug */,
+				36902361260292F400066F47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		36902338260292F000066F47 /* Smart Wallet.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				36902339260292F000066F47 /* My_Personal_Manager.xcdatamodel */,
+			);
+			currentVersion = 36902339260292F000066F47 /* My_Personal_Manager.xcdatamodel */;
+			path = "Smart Wallet.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 36902324260292EF00066F47 /* Project object */;
+}
