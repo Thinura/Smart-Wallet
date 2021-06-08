@@ -182,14 +182,15 @@ class MasterViewTableViewController: UITableViewController, NSFetchedResultsCont
                             print("Failed to REMOVE from calendar event with error: \(error)")
                         }
                 }
-                
-                let reminder = eventStore.calendarItem(withIdentifier: expense.reminderId!) as! EKReminder
-                do{
-                    try             self.eventStore.remove(reminder, commit: true)
-                    
-                    
-                }catch let error as NSError{
-                    print("Failed to REMOVE from calendar reminder with error: \(error)")
+                if(expense.reminderId! != ""){
+                    let reminder = eventStore.calendarItem(withIdentifier: expense.reminderId!) as! EKReminder
+                    do{
+                        try             self.eventStore.remove(reminder, commit: true)
+                        
+                        
+                    }catch let error as NSError{
+                        print("Failed to REMOVE from calendar reminder with error: \(error)")
+                    }
                 }
             }
             
